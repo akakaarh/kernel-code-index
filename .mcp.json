@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "kernel-index": {
+      "command": "python",
+      "args": ["E:/projects/kernel-code-index/mcp_server.py"],
+      "cwd": "E:/projects/kernel-code-index"
+    }
+  }
+}
