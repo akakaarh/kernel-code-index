@@ -337,54 +337,110 @@ def reindex_subsystem(subsystem: str) -> str:
 
 
 @mcp.tool()
-def call_graph(name: str, direction: str = "both") -> str:
+def call_graph(name: str, direction: str = "both", depth: int = 1) -> str:
     """Find callers and/or callees of a function in the kernel call graph.
 
     Args:
         name: Function name (exact match).
         direction: "callers" (who calls this), "callees" (what this calls), or "both".
+        depth: How many levels to expand (default 1 = direct only). Use 2-3 to see
+               deeper call chains without overwhelming detail. Nodes with more children
+               are marked with [...] so you know where to dig deeper.
 
     Returns:
-        List of call relations with file locations and line numbers.
+        Call graph tree with file locations and line numbers.
     """
     conn = get_conn()
-    parts = []
 
-    if direction in ("callers", "both"):
-        rows = conn.execute("""
-            SELECT caller.name, f.path, cr.call_site_line
+    # Preload adjacency for efficiency
+    if direction in ("callees", "both"):
+        cal_rows = conn.execute("""
+            SELECT caller.name, callee.name, f.path, cr.call_site_line
             FROM call_relations cr
             JOIN symbols caller ON cr.caller_id = caller.id
             JOIN symbols callee ON cr.callee_id = callee.id
             JOIN files f ON cr.call_site_file_id = f.id
-            WHERE callee.name = ?
-            ORDER BY caller.name, f.path, cr.call_site_line
-        """, (name,)).fetchall()
-        if rows:
-            parts.append(f"Callers of {name} ({len(rows)} found):")
-            for r in rows:
-                parts.append(f"  {r['name']:40s} at {r['path']}:{r['call_site_line']}")
+        """).fetchall()
+        callee_adj = {}  # caller -> [(callee, path, line), ...]
+        for r in cal_rows:
+            callee_adj.setdefault(r[0], []).append((r[1], r[2], r[3]))
+
+    if direction in ("callers", "both"):
+        call_rows = conn.execute("""
+            SELECT caller.name, callee.name, f.path, cr.call_site_line
+            FROM call_relations cr
+            JOIN symbols caller ON cr.caller_id = caller.id
+            JOIN symbols callee ON cr.callee_id = callee.id
+            JOIN files f ON cr.call_site_file_id = f.id
+        """).fetchall()
+        caller_adj = {}  # callee -> [(caller, path, line), ...]
+        for r in call_rows:
+            caller_adj.setdefault(r[1], []).append((r[0], r[2], r[3]))
+
+    conn.close()
+
+    def format_tree(root, adj, label, current_depth, visited):
+        """Recursively build a tree string."""
+        lines = []
+        entries = adj.get(root, [])
+        if not entries:
+            if current_depth == 1:
+                lines.append(f"{label} of {root}: (none)")
+            return lines
+
+        # Deduplicate: group by name, keep first occurrence's path/line
+        seen = {}
+        for callee_name, path, line in entries:
+            if callee_name not in seen:
+                seen[callee_name] = (path, line)
+        unique = sorted(seen.items())
+
+        if current_depth == 1:
+            has_more = any(name not in visited and adj.get(name) for name, _ in unique)
+            suffix = " (use depth=2 to expand)" if has_more and depth == 1 else ""
+            lines.append(f"{label} of {root} ({len(unique)} found){suffix}:")
+
+        for child_name, (path, line) in unique:
+            short_path = path.split("/")[-1] if "/" in path else path
+            is_cycle = child_name in visited
+            has_children = child_name in adj and adj[child_name]
+
+            if current_depth >= depth:
+                # At max depth: show node, mark if expandable
+                if has_children and not is_cycle:
+                    child_count = len(set(n for n, _, _ in adj.get(child_name, [])))
+                    lines.append(f"{'  ' * current_depth}{child_name} at {short_path}:{line} [...{child_count} more]")
+                else:
+                    lines.append(f"{'  ' * current_depth}{child_name} at {short_path}:{line}")
+            else:
+                # Recurse
+                if is_cycle:
+                    lines.append(f"{'  ' * current_depth}{child_name} at {short_path}:{line} (cycle)")
+                elif has_children:
+                    lines.append(f"{'  ' * current_depth}{child_name} at {short_path}:{line}:")
+                    visited.add(child_name)
+                    sub = format_tree(child_name, adj, label, current_depth + 1, visited)
+                    lines.extend(sub)
+                    visited.discard(child_name)
+                else:
+                    lines.append(f"{'  ' * current_depth}{child_name} at {short_path}:{line} (leaf)")
+
+        return lines
+
+    parts = []
+
+    if direction in ("callers", "both"):
+        if name in caller_adj:
+            parts.extend(format_tree(name, caller_adj, "Callers", 1, {name}))
         else:
             parts.append(f"No callers found for {name}")
 
     if direction in ("callees", "both"):
-        rows = conn.execute("""
-            SELECT callee.name, f.path, cr.call_site_line
-            FROM call_relations cr
-            JOIN symbols caller ON cr.caller_id = caller.id
-            JOIN symbols callee ON cr.callee_id = callee.id
-            JOIN files f ON cr.call_site_file_id = f.id
-            WHERE caller.name = ?
-            ORDER BY callee.name, f.path, cr.call_site_line
-        """, (name,)).fetchall()
-        if rows:
-            parts.append(f"Callees of {name} ({len(rows)} found):")
-            for r in rows:
-                parts.append(f"  {r['name']:40s} at {r['path']}:{r['call_site_line']}")
+        if name in callee_adj:
+            parts.extend(format_tree(name, callee_adj, "Callees", 1, {name}))
         else:
             parts.append(f"No callees found for {name}")
 
-    conn.close()
     return "\n".join(parts) if parts else f"Function '{name}' not found in call graph"
 
 
