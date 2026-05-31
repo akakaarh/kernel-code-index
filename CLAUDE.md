@@ -52,21 +52,25 @@ Linux 内核代码量巨大（数千万行），无法直接塞入 LLM 上下文
 
 ## 阶段规划
 
-### Phase 1：符号提取 MVP
+### Phase 1：符号提取 MVP ✅
 - 选定一个内核版本和子系统（比如 drivers/gpio）
 - 用 ctags/clangd 提取符号信息
 - 存入可查询的结构（JSON/SQLite）
 
-### Phase 2：调用链构建
+### Phase 2：调用链构建 ✅
 - 解析函数调用关系
 - 支持"谁调用了 X"和"X 调用了谁"的查询
 
-### Phase 3：向量化 + AI 集成
-- 符号摘要向量化
-- 接入 AI，支持自然语言查询代码结构
+### Phase 3：向量化 + AI 集成 ✅
+- 符号摘要导出为 markdown（`export_symbols.py` → `symbol-docs/`）
+- 使用 qmd 引擎做 BM25+向量混合检索
+- MCP server 新增 `search` 工具（语义搜索）
+- qmd collection: `kernel-symbols`
 
-### Phase 4：与 Wiki 联合检索
-- 代码索引 + 知识库统一搜索入口
+### Phase 4：与 Wiki 联合检索 ✅
+- `search` 工具同时搜索 `kernel-symbols` + `wiki` 两个 qmd collection
+- wiki collection 覆盖整个 `E:\Wiki`（87 个 md 文件）
+- 结果按来源标注 `[code]`（内核代码）或 `[wiki]`（文档笔记）
 - AI 回答时同时引用代码位置和文档说明
 
 ## 验证方式

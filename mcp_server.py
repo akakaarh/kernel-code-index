@@ -13,10 +13,9 @@ mcp = FastMCP(
     "kernel-index",
     instructions=(
         "Linux kernel C source code symbol index. "
-        "Use these tools to look up C functions, structs, macros, enums, and variables "
-        "from kernel source files — NOT for searching documentation or wiki notes. "
-        "These tools return exact symbol locations (file path + line number), "
-        "type signatures, and return types from kernel source code."
+        "Use `search` first for conceptual questions (e.g. 'gpio interrupt', 'probe flow'). "
+        "Use `find_symbol` for exact symbol lookup by name. "
+        "Use `call_graph` / `call_chain` for call relationships."
     ),
 )
 
@@ -442,6 +441,107 @@ def call_graph(name: str, direction: str = "both", depth: int = 1) -> str:
             parts.append(f"No callees found for {name}")
 
     return "\n".join(parts) if parts else f"Function '{name}' not found in call graph"
+
+
+@mcp.tool()
+def search(query: str, top_n: int = 5, rerank: bool = False) -> str:
+    """Search kernel code by meaning (not exact name). Use this FIRST when
+    asked about kernel functionality, drivers, subsystems, or concepts.
+
+    Examples: "gpio interrupt handling", "register a gpio chip", "probe flow",
+    "memory allocation", "dma transfer". Supports Chinese queries.
+
+    Args:
+        query: What you're looking for, in natural language.
+        top_n: Max results (default 5).
+        rerank: Use LLM reranking for better quality but slower.
+
+    Returns:
+        Matching source files with relevant symbol snippets and relevance scores.
+    """
+    import json as _json
+    import os
+    import shutil
+    import subprocess
+    import sys
+
+    # On Windows, qmd is a .cmd wrapper that needs Git Bash's sh.exe
+    if sys.platform == "win32":
+        sh_path = shutil.which("sh.exe") or shutil.which("sh")
+        qmd_script = os.path.join(
+            os.environ.get("APPDATA", ""), "npm", "node_modules", "@tobilu", "qmd", "bin", "qmd"
+        )
+        if not sh_path or not os.path.exists(qmd_script):
+            return "Error: qmd not found. Install with: npm install -g @tobilu/qmd"
+        cmd_base = [sh_path, qmd_script]
+    else:
+        qmd_bin = shutil.which("qmd")
+        if not qmd_bin:
+            return "Error: qmd not found. Install with: npm install -g @tobilu/qmd"
+        cmd_base = [qmd_bin]
+
+    cmd = cmd_base + ["query", query,
+        "-c", "kernel-symbols",
+        "-c", "wiki",
+        "--json",
+        "-n", str(top_n),
+    ]
+    if not rerank:
+        cmd.append("--no-rerank")
+
+    try:
+        result = subprocess.run(
+            cmd, capture_output=True, timeout=60,
+            encoding="utf-8", errors="replace",
+        )
+    except subprocess.TimeoutExpired:
+        return "Error: qmd query timed out (60s)"
+
+    if result.returncode != 0:
+        return f"Error running qmd: {result.stderr[:500]}"
+
+    # Parse JSON from stdout (skip stderr progress lines)
+    output = result.stdout.strip()
+    # Find the JSON array in the output
+    json_start = output.find("[")
+    if json_start == -1:
+        return f"No results found for: {query}"
+
+    try:
+        results = _json.loads(output[json_start:])
+    except _json.JSONDecodeError:
+        return f"Error parsing qmd output: {output[:500]}"
+
+    if not results:
+        return f"No results found for: {query}"
+
+    lines = []
+    for i, r in enumerate(results, 1):
+        title = r.get("title", "unknown")
+        score = r.get("score", 0)
+        snippet = r.get("snippet", "").strip()
+
+        # Determine source
+        file_path = r.get("file", "")
+        source = "[wiki]" if "kernel-symbols" not in file_path else "[code]"
+
+        lines.append(f"--- Result {i} {source} (score: {score:.0%}) ---")
+        lines.append(f"File: {title}")
+
+        # Clean up snippet: remove diff-style markers
+        if snippet:
+            clean_lines = []
+            for sline in snippet.split("\n"):
+                if sline.startswith("@@"):
+                    continue
+                sline = sline.replace("\r", "")
+                clean_lines.append(sline)
+            snippet_text = "\n".join(clean_lines).strip()
+            if snippet_text:
+                lines.append(snippet_text)
+        lines.append("")
+
+    return "\n".join(lines)
 
 
 @mcp.tool()

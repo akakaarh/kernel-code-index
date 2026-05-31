@@ -1,3 +1,12 @@
-kernel-src/
-*.db
+# Python
 __pycache__/
+*.pyc
+
+# Claude Code 配置
+.claude/
+
+# 内核源码（太大，309MB）
+kernel-src/
+
+# 数据库（运行时生成）
+*.db
