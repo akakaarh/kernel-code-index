@@ -1,0 +1,1102 @@
+# drivers/spi/spi-dln2.c
+
+Subsystem: drivers/spi
+
+## Functions (27)
+
+### dln2_spi_copy_from_buf
+- Return type: static int
+- Signature: dln2_spi_copy_from_buf(u8 * dest,const u8 * dln2_buf,u16 len,u8 bpw)
+- Line: 389
+
+### dln2_spi_copy_to_buf
+- Return type: static int
+- Signature: dln2_spi_copy_to_buf(u8 * dln2_buf,const u8 * src,u16 len,u8 bpw)
+- Line: 356
+
+### dln2_spi_cs_enable
+- Return type: static int
+- Signature: dln2_spi_cs_enable(struct dln2_spi * dln2,u8 cs_mask,bool enable)
+- Line: 162
+
+### dln2_spi_cs_enable_all
+- Return type: static int
+- Signature: dln2_spi_cs_enable_all(struct dln2_spi * dln2,bool enable)
+- Line: 177
+
+### dln2_spi_cs_set
+- Return type: static int
+- Signature: dln2_spi_cs_set(struct dln2_spi * dln2,u8 cs_mask)
+- Line: 132
+
+### dln2_spi_cs_set_one
+- Return type: static int
+- Signature: dln2_spi_cs_set_one(struct dln2_spi * dln2,u8 cs)
+- Line: 154
+
+### dln2_spi_enable
+- Return type: static int
+- Signature: dln2_spi_enable(struct dln2_spi * dln2,bool enable)
+- Line: 102
+
+### dln2_spi_get_cs_num
+- Return type: static int
+- Signature: dln2_spi_get_cs_num(struct dln2_spi * dln2,u16 * cs_num)
+- Line: 184
+
+### dln2_spi_get_speed
+- Return type: static int
+- Signature: dln2_spi_get_speed(struct dln2_spi * dln2,u16 cmd,u32 * freq)
+- Line: 210
+
+### dln2_spi_get_speed_range
+- Return type: static int
+- Signature: dln2_spi_get_speed_range(struct dln2_spi * dln2,u32 * fmin,u32 * fmax)
+- Line: 237
+
+### dln2_spi_get_supported_frame_sizes
+- Return type: static int
+- Signature: dln2_spi_get_supported_frame_sizes(struct dln2_spi * dln2,u32 * bpw_mask)
+- Line: 317
+
+### dln2_spi_prepare_message
+- Return type: static int
+- Signature: dln2_spi_prepare_message(struct spi_controller * host,struct spi_message * message)
+- Line: 592
+
+### dln2_spi_probe
+- Return type: static int
+- Signature: dln2_spi_probe(struct platform_device * pdev)
+- Line: 680
+
+### dln2_spi_rdwr
+- Return type: static int
+- Signature: dln2_spi_rdwr(struct dln2_spi * dln2,const u8 * tx_data,u8 * rx_data,u16 data_len,u8 attr)
+- Line: 546
+
+### dln2_spi_read_one
+- Return type: static int
+- Signature: dln2_spi_read_one(struct dln2_spi * dln2,u8 * data,u16 data_len,u8 attr)
+- Line: 448
+
+### dln2_spi_read_write_one
+- Return type: static int
+- Signature: dln2_spi_read_write_one(struct dln2_spi * dln2,const u8 * tx_data,u8 * rx_data,u16 data_len,u8 attr)
+- Line: 489
+
+### dln2_spi_remove
+- Return type: static void
+- Signature: dln2_spi_remove(struct platform_device * pdev)
+- Line: 781
+
+### dln2_spi_resume
+- Return type: static int
+- Signature: dln2_spi_resume(struct device * dev)
+- Line: 827
+
+### dln2_spi_runtime_resume
+- Return type: static int
+- Signature: dln2_spi_runtime_resume(struct device * dev)
+- Line: 856
+
+### dln2_spi_runtime_suspend
+- Return type: static int
+- Signature: dln2_spi_runtime_suspend(struct device * dev)
+- Line: 848
+
+### dln2_spi_set_bpw
+- Return type: static int
+- Signature: dln2_spi_set_bpw(struct dln2_spi * dln2,u8 bpw)
+- Line: 303
+
+### dln2_spi_set_mode
+- Return type: static int
+- Signature: dln2_spi_set_mode(struct dln2_spi * dln2,u8 mode)
+- Line: 287
+
+### dln2_spi_set_speed
+- Return type: static int
+- Signature: dln2_spi_set_speed(struct dln2_spi * dln2,u32 speed)
+- Line: 259
+
+### dln2_spi_suspend
+- Return type: static int
+- Signature: dln2_spi_suspend(struct device * dev)
+- Line: 799
+
+### dln2_spi_transfer_one
+- Return type: static int
+- Signature: dln2_spi_transfer_one(struct spi_controller * host,struct spi_device * spi,struct spi_transfer * xfer)
+- Line: 653
+
+### dln2_spi_transfer_setup
+- Return type: static int
+- Signature: dln2_spi_transfer_setup(struct dln2_spi * dln2,u32 speed,u8 bpw,u8 mode)
+- Line: 610
+
+### dln2_spi_write_one
+- Return type: static int
+- Signature: dln2_spi_write_one(struct dln2_spi * dln2,const u8 * data,u16 data_len,u8 attr)
+- Line: 419
+
+## Structs (19)
+
+### __anonecc807920108
+- Line: 105
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920208
+- Line: 134
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920308
+- Line: 164
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920408
+- Line: 187
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920508
+- Line: 190
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920608
+- Line: 213
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920708
+- Line: 216
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920808
+- Line: 262
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920908
+- Line: 266
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920a08
+- Line: 289
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920b08
+- Line: 305
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920c08
+- Line: 321
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920d08
+- Line: 324
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920e08
+- Line: 422
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807920f08
+- Line: 452
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807921008
+- Line: 457
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807921108
+- Line: 493
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### __anonecc807921208
+- Line: 499
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+### dln2_spi
+- Line: 80
+- Members:
+  - pdev: platform_device *
+  - host: spi_controller *
+  - port: u8
+  - buf: void *
+  - bpw: u8
+  - speed: u32
+  - mode: u16
+  - cs: u8
+  - port: u8
+  - wait_for_completion: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs: u8
+  - port: u8
+  - cs_count: __le16
+  - port: u8
+  - speed: __le32
+  - port: u8
+  - speed: __le32
+  - speed: __le32
+  - port: u8
+  - mode: u8
+  - port: u8
+  - bpw: u8
+  - port: u8
+  - count: u8
+  - frame_sizes: u8[36]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - size: __le16
+  - buf: u8[]
+  - port: u8
+  - size: __le16
+  - attr: u8
+  - buf: u8[]
+  - size: __le16
+  - buf: u8[]
+
+## Variables (2)
+
+- static **dln2_spi_pm** : const struct dev_pm_ops (line 865)
+- static **spi_dln2_driver** : platform_driver (line 871)
+
+## Macros (59)
+
+- **DLN2_RPM_AUTOSUSPEND_TIMEOUT** (line 78)
+- **DLN2_SPI_ATTR_LEAVE_SS_LOW** (line 75)
+- **DLN2_SPI_BUF_SIZE** (line 74)
+- **DLN2_SPI_CMD**(cmd) (line 18)
+- **DLN2_SPI_DISABLE** (line 23)
+- **DLN2_SPI_ENABLE** (line 22)
+- **DLN2_SPI_GET_CPHA** (line 53)
+- **DLN2_SPI_GET_CPOL** (line 55)
+- **DLN2_SPI_GET_DELAY_AFTER_SS** (line 37)
+- **DLN2_SPI_GET_DELAY_BETWEEN_FRAMES** (line 39)
+- **DLN2_SPI_GET_DELAY_BETWEEN_SS** (line 35)
+- **DLN2_SPI_GET_FRAME_SIZE** (line 28)
+- **DLN2_SPI_GET_FREQUENCY** (line 30)
+- **DLN2_SPI_GET_MAX_DELAY_AFTER_SS** (line 69)
+- **DLN2_SPI_GET_MAX_DELAY_BETWEEN_FRAMES** (line 71)
+- **DLN2_SPI_GET_MAX_DELAY_BETWEEN_SS** (line 67)
+- **DLN2_SPI_GET_MAX_FREQUENCY** (line 65)
+- **DLN2_SPI_GET_MIN_DELAY_AFTER_SS** (line 68)
+- **DLN2_SPI_GET_MIN_DELAY_BETWEEN_FRAMES** (line 70)
+- **DLN2_SPI_GET_MIN_DELAY_BETWEEN_SS** (line 66)
+- **DLN2_SPI_GET_MIN_FREQUENCY** (line 64)
+- **DLN2_SPI_GET_MODE** (line 26)
+- **DLN2_SPI_GET_PORT_COUNT** (line 21)
+- **DLN2_SPI_GET_SS** (line 41)
+- **DLN2_SPI_GET_SS_COUNT** (line 63)
+- **DLN2_SPI_GET_SUPPORTED_CPHA_VALUES** (line 60)
+- **DLN2_SPI_GET_SUPPORTED_CPOL_VALUES** (line 61)
+- **DLN2_SPI_GET_SUPPORTED_FRAME_SIZES** (line 62)
+- **DLN2_SPI_GET_SUPPORTED_MODES** (line 59)
+- **DLN2_SPI_IS_ENABLED** (line 24)
+- **DLN2_SPI_MAX_XFER_SIZE** (line 73)
+- **DLN2_SPI_MODULE_ID** (line 17)
+- **DLN2_SPI_READ** (line 32)
+- **DLN2_SPI_READ_WRITE** (line 31)
+- **DLN2_SPI_RELEASE_SS** (line 42)
+- **DLN2_SPI_SET_CPHA** (line 52)
+- **DLN2_SPI_SET_CPOL** (line 54)
+- **DLN2_SPI_SET_DELAY_AFTER_SS** (line 36)
+- **DLN2_SPI_SET_DELAY_BETWEEN_FRAMES** (line 38)
+- **DLN2_SPI_SET_DELAY_BETWEEN_SS** (line 34)
+- **DLN2_SPI_SET_FRAME_SIZE** (line 27)
+- **DLN2_SPI_SET_FREQUENCY** (line 29)
+- **DLN2_SPI_SET_MODE** (line 25)
+- **DLN2_SPI_SET_SS** (line 40)
+- **DLN2_SPI_SS_AAT_DISABLE** (line 47)
+- **DLN2_SPI_SS_AAT_ENABLE** (line 46)
+- **DLN2_SPI_SS_AAT_IS_ENABLED** (line 48)
+- **DLN2_SPI_SS_BETWEEN_FRAMES_DISABLE** (line 50)
+- **DLN2_SPI_SS_BETWEEN_FRAMES_ENABLE** (line 49)
+- **DLN2_SPI_SS_BETWEEN_FRAMES_IS_ENABLED** (line 51)
+- **DLN2_SPI_SS_MULTI_DISABLE** (line 57)
+- **DLN2_SPI_SS_MULTI_ENABLE** (line 56)
+- **DLN2_SPI_SS_MULTI_IS_ENABLED** (line 58)
+- **DLN2_SPI_SS_VARIABLE_DISABLE** (line 44)
+- **DLN2_SPI_SS_VARIABLE_ENABLE** (line 43)
+- **DLN2_SPI_SS_VARIABLE_IS_ENABLED** (line 45)
+- **DLN2_SPI_WRITE** (line 33)
+- **DLN2_TRANSFERS_CANCEL** (line 77)
+- **DLN2_TRANSFERS_WAIT_COMPLETE** (line 76)
