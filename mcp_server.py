@@ -482,7 +482,6 @@ def search(query: str, top_n: int = 5, rerank: bool = False) -> str:
 
     cmd = cmd_base + ["query", query,
         "-c", "kernel-symbols",
-        "-c", "wiki",
         "--json",
         "-n", str(top_n),
     ]
@@ -521,11 +520,7 @@ def search(query: str, top_n: int = 5, rerank: bool = False) -> str:
         score = r.get("score", 0)
         snippet = r.get("snippet", "").strip()
 
-        # Determine source
-        file_path = r.get("file", "")
-        source = "[wiki]" if "kernel-symbols" not in file_path else "[code]"
-
-        lines.append(f"--- Result {i} {source} (score: {score:.0%}) ---")
+        lines.append(f"--- Result {i} (score: {score:.0%}) ---")
         lines.append(f"File: {title}")
 
         # Clean up snippet: remove diff-style markers

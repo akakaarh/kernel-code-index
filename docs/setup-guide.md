@@ -142,14 +142,6 @@ qmd query "gpio interrupt handling" -c kernel-symbols
 
 `mcp_server.py` 中的 `search` 工具会自动调用 qmd。确保 qmd 已安装且 `kernel-symbols` collection 已创建。
 
-如果还需要与 Wiki 文档联合搜索：
-
-```bash
-qmd add wiki /path/to/your/wiki/
-```
-
-然后修改 `mcp_server.py` 中的 search 函数，将 `-c wiki` 改为你的 Wiki 路径对应的 collection 名称。
-
 ## 8. 添加更多子系统
 
 索引完成后，可以通过 MCP 工具动态添加新子系统：

@@ -21,7 +21,6 @@ Linux 内核代码量巨大（数千万行），无法直接塞入 LLM 上下文
 2. **调用链分析**：构建函数调用图（call graph），支持正向/反向查询
 3. **依赖分析**：Kconfig → Makefile → 源文件 → 设备树的依赖链
 4. **向量化存储**：将符号摘要向量化，存入向量数据库（可复用 qmd 方案）
-5. **与现有 Wiki 打通**：代码索引和 E:\Wiki\embedded\wiki 的知识库联合检索
 
 ## 竞品调研（2026-05）
 
@@ -67,11 +66,9 @@ Linux 内核代码量巨大（数千万行），无法直接塞入 LLM 上下文
 - MCP server 新增 `search` 工具（语义搜索）
 - qmd collection: `kernel-symbols`
 
-### Phase 4：与 Wiki 联合检索 ✅
-- `search` 工具同时搜索 `kernel-symbols` + `wiki` 两个 qmd collection
-- wiki collection 覆盖整个 `E:\Wiki`（87 个 md 文件）
-- 结果按来源标注 `[code]`（内核代码）或 `[wiki]`（文档笔记）
-- AI 回答时同时引用代码位置和文档说明
+### Phase 4：语义搜索 ✅
+- 符号摘要导出为 markdown，qmd 引擎做 BM25+向量混合检索
+- MCP server `search` 工具搜索 `kernel-symbols` collection
 
 ## 验证方式
 
