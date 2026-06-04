@@ -1,0 +1,2613 @@
+# drivers/mmc/host/vub300.c
+
+Subsystem: drivers/mmc
+
+## Functions (48)
+
+### __add_offloaded_reg_to_fifo
+- Return type: static void
+- Signature: __add_offloaded_reg_to_fifo(struct vub300_mmc_host * vub300,struct offload_registers_access * register_access,u8 func)
+- Line: 530
+
+### __command_read_data
+- Return type: static int
+- Signature: __command_read_data(struct vub300_mmc_host * vub300,struct mmc_command * cmd,struct mmc_data * data)
+- Line: 1429
+
+### __command_write_data
+- Return type: static int
+- Signature: __command_write_data(struct vub300_mmc_host * vub300,struct mmc_command * cmd,struct mmc_data * data)
+- Line: 1501
+
+### __do_poll
+- Return type: static void
+- Signature: __do_poll(struct vub300_mmc_host * vub300)
+- Line: 655
+
+### __download_offload_pseudocode
+- Return type: static void
+- Signature: __download_offload_pseudocode(struct vub300_mmc_host * vub300,const struct firmware * fw)
+- Line: 1200
+
+### __set_clock_speed
+- Return type: static void
+- Signature: __set_clock_speed(struct vub300_mmc_host * vub300,u8 buf[8],struct mmc_ios * ios)
+- Line: 1966
+
+### __vub300_command_response
+- Return type: static void
+- Signature: __vub300_command_response(struct vub300_mmc_host * vub300,struct mmc_command * cmd,struct mmc_data * data,int data_length)
+- Line: 1589
+
+### __vub300_irqpoll_response
+- Return type: static void
+- Signature: __vub300_irqpoll_response(struct vub300_mmc_host * vub300)
+- Line: 585
+
+### add_offloaded_reg
+- Return type: static void
+- Signature: add_offloaded_reg(struct vub300_mmc_host * vub300,struct offload_registers_access * register_access)
+- Line: 541
+
+### check_vub300_port_status
+- Return type: static void
+- Signature: check_vub300_port_status(struct vub300_mmc_host * vub300)
+- Line: 568
+
+### command_out_completed
+- Return type: static void
+- Signature: command_out_completed(struct urb * urb)
+- Line: 821
+
+### command_res_completed
+- Return type: static void
+- Signature: command_res_completed(struct urb * urb)
+- Line: 792
+
+### construct_request_response
+- Return type: static void
+- Signature: construct_request_response(struct vub300_mmc_host * vub300,struct mmc_command * cmd)
+- Line: 1709
+
+### download_offload_pseudocode
+- Return type: static void
+- Signature: download_offload_pseudocode(struct vub300_mmc_host * vub300)
+- Line: 1354
+
+### examine_cyclic_buffer
+- Return type: static int
+- Signature: examine_cyclic_buffer(struct vub300_mmc_host * vub300,struct mmc_command * cmd,u8 Function)
+- Line: 1796
+
+### interface_to_InterfaceNumber
+- Return type: static int
+- Signature: interface_to_InterfaceNumber(struct usb_interface * interface)
+- Line: 277
+
+### irqpoll_out_completed
+- Return type: static void
+- Signature: irqpoll_out_completed(struct urb * urb)
+- Line: 454
+
+### irqpoll_res_completed
+- Return type: static void
+- Signature: irqpoll_res_completed(struct urb * urb)
+- Line: 446
+
+### new_system_port_status
+- Return type: static void
+- Signature: new_system_port_status(struct vub300_mmc_host * vub300)
+- Line: 504
+
+### roundup_to_multiple_of_64
+- Return type: static u16
+- Signature: roundup_to_multiple_of_64(u16 number)
+- Line: 1192
+
+### satisfy_request_from_offloaded_data
+- Return type: static int
+- Signature: satisfy_request_from_offloaded_data(struct vub300_mmc_host * vub300,struct mmc_command * cmd)
+- Line: 1853
+
+### send_command
+- Return type: static void
+- Signature: send_command(struct vub300_mmc_host * vub300)
+- Line: 890
+
+### send_irqpoll
+- Return type: static void
+- Signature: send_irqpoll(struct vub300_mmc_host * vub300)
+- Line: 478
+
+### snoop_block_size_and_bus_width
+- Return type: static void
+- Signature: snoop_block_size_and_bus_width(struct vub300_mmc_host * vub300,u32 cmd_arg)
+- Line: 853
+
+### vub300_cmndwork_thread
+- Return type: static void
+- Signature: vub300_cmndwork_thread(struct work_struct * work)
+- Line: 1741
+
+### vub300_deadwork_thread
+- Return type: static void
+- Signature: vub300_deadwork_thread(struct work_struct * work)
+- Line: 709
+
+### vub300_delete
+- Return type: static void
+- Signature: vub300_delete(struct kref * kref)
+- Line: 369
+
+### vub300_disconnect
+- Return type: static void
+- Signature: vub300_disconnect(struct usb_interface * interface)
+- Line: 2361
+
+### vub300_enable_sdio_irq
+- Return type: static void
+- Signature: vub300_enable_sdio_irq(struct mmc_host * mmc,int enable)
+- Line: 2047
+
+### vub300_exit
+- Return type: static void __exit
+- Signature: vub300_exit(void)
+- Line: 2465
+
+### vub300_inactivity_timer_expired
+- Return type: static void
+- Signature: vub300_inactivity_timer_expired(struct timer_list * t)
+- Line: 742
+
+### vub300_init
+- Return type: static int __init
+- Signature: vub300_init(void)
+- Line: 2426
+
+### vub300_mmc_get_ro
+- Return type: static int
+- Signature: vub300_mmc_get_ro(struct mmc_host * mmc)
+- Line: 2041
+
+### vub300_mmc_request
+- Return type: static void
+- Signature: vub300_mmc_request(struct mmc_host * mmc,struct mmc_request * req)
+- Line: 1900
+
+### vub300_mmc_set_ios
+- Return type: static void
+- Signature: vub300_mmc_set_ios(struct mmc_host * mmc,struct mmc_ios * ios)
+- Line: 2006
+
+### vub300_pollwork_thread
+- Return type: static void
+- Signature: vub300_pollwork_thread(struct work_struct * work)
+- Line: 678
+
+### vub300_post_reset
+- Return type: static int
+- Signature: vub300_post_reset(struct usb_interface * intf)
+- Line: 2405
+
+### vub300_pre_reset
+- Return type: static int
+- Signature: vub300_pre_reset(struct usb_interface * intf)
+- Line: 2398
+
+### vub300_probe
+- Return type: static int
+- Signature: vub300_probe(struct usb_interface * interface,const struct usb_device_id * id)
+- Line: 2084
+
+### vub300_queue_cmnd_work
+- Return type: static void
+- Signature: vub300_queue_cmnd_work(struct vub300_mmc_host * vub300)
+- Line: 386
+
+### vub300_queue_dead_work
+- Return type: static void
+- Signature: vub300_queue_dead_work(struct vub300_mmc_host * vub300)
+- Line: 426
+
+### vub300_queue_poll_work
+- Return type: static void
+- Signature: vub300_queue_poll_work(struct vub300_mmc_host * vub300,int delay)
+- Line: 406
+
+### vub300_response_error
+- Return type: static int
+- Signature: vub300_response_error(u8 error_code)
+- Line: 756
+
+### vub300_resume
+- Return type: static int
+- Signature: vub300_resume(struct usb_interface * intf)
+- Line: 2390
+
+### vub300_sg_timed_out
+- Return type: static void
+- Signature: vub300_sg_timed_out(struct timer_list * t)
+- Line: 1182
+
+### vub300_suspend
+- Return type: static int
+- Signature: vub300_suspend(struct usb_interface * intf,pm_message_t message)
+- Line: 2385
+
+### vub300_usb_bulk_msg
+- Return type: static int
+- Signature: vub300_usb_bulk_msg(struct vub300_mmc_host * vub300,unsigned int pipe,void * data,int len,int * actual_length,int timeout_msecs)
+- Line: 1396
+
+### vub300_usb_bulk_msg_completion
+- Return type: static void
+- Signature: vub300_usb_bulk_msg_completion(struct urb * urb)
+- Line: 1391
+
+## Structs (15)
+
+### host_controller_info
+- Line: 53
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### offload_interrupt_function_register
+- Line: 324
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### offload_registers_access
+- Line: 125
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_command_header
+- Line: 60
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_common_header
+- Line: 86
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_error_header
+- Line: 112
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_interrupt_header
+- Line: 119
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_irqpoll_header
+- Line: 75
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_offloaded_interrupt
+- Line: 131
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_offloaded_piggyback
+- Line: 148
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_register_header
+- Line: 138
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_response_header
+- Line: 92
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_status_header
+- Line: 101
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sdio_register
+- Line: 286
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### vub300_mmc_host
+- Line: 296
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+## Enums (1)
+
+### SD_RESPONSE_TYPE
+- Line: 168
+
+## Unions (2)
+
+### sd_command
+- Line: 163
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+### sd_response
+- Line: 153
+- Members:
+  - info_size: u8
+  - firmware_version: u16
+  - number_of_ports: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - transfer_size: u8[4]
+  - response_type: u8
+  - arguments: u8[4]
+  - block_count: u8[2]
+  - block_size: u8[2]
+  - block_boundary: u8[2]
+  - reserved: u8[44]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - padding: u8[16]
+  - poll_timeout_msb: u8
+  - poll_timeout_lsb: u8
+  - reserved: u8[42]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - port_flags: u16
+  - sdio_clock: u32
+  - host_header_size: u16
+  - func_header_size: u16
+  - ctrl_header_size: u16
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - error_code: u8
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_byte: u8[4]
+  - Respond_Byte: u8[4]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - reg: offload_registers_access[]
+  - header_size: u8
+  - header_type: u8
+  - port_number: u8
+  - command_type: u8
+  - command_index: u8
+  - command_response: u8[6]
+  - sdio: sd_register_header
+  - reg: offload_registers_access[]
+  - common: sd_common_header
+  - status: sd_status_header
+  - error: sd_error_header
+  - interrupt: sd_interrupt_header
+  - response: sd_response_header
+  - irq: sd_offloaded_interrupt
+  - pig: sd_offloaded_piggyback
+  - head: sd_command_header
+  - poll: sd_irqpoll_header
+  - func_num: unsigned:3
+  - sdio_reg: unsigned:17
+  - activate: unsigned:1
+  - prepared: unsigned:1
+  - regvalue: unsigned:8
+  - response: unsigned:8
+  - sparebit: unsigned:26
+  - udev: usb_device *
+  - interface: usb_interface *
+  - kref: kref
+  - cmd_mutex: mutex
+  - irq_mutex: mutex
+  - vub_name: char[]
+  - cmnd_out_ep: u8
+  - cmnd_res_ep: u8
+  - data_out_ep: u8
+  - data_inp_ep: u8
+  - card_powered: bool
+  - card_present: bool
+  - read_only: bool
+  - large_usb_packets: bool
+  - app_spec: bool
+  - irq_enabled: bool
+  - irq_disabled: bool
+  - bus_width: unsigned:4
+  - total_offload_count: u8
+  - dynamic_register_count: u8
+  - resp_len: u8
+  - datasize: u32
+  - errors: int
+  - usb_transport_fail: int
+  - usb_timed_out: int
+  - irqs_queued: int
+  - sdio_register: sdio_register[16]
+  - offload_count: u8
+  - offload_point: u32
+  - reg: offload_registers_access[]
+  - fn: vub300_mmc_host::offload_interrupt_function_register[8]
+  - fbs: u16[8]
+  - cmd: mmc_command *
+  - req: mmc_request *
+  - data: mmc_data *
+  - mmc: mmc_host *
+  - urb: urb *
+  - command_out_urb: urb *
+  - command_res_urb: urb *
+  - command_complete: completion
+  - irqpoll_complete: completion
+  - cmnd: sd_command
+  - resp: sd_response
+  - sg_transfer_timer: timer_list
+  - sg_request: usb_sg_request
+  - inactivity_timer: timer_list
+  - deadwork: work_struct
+  - cmndwork: work_struct
+  - pollwork: delayed_work
+  - hc_info: host_controller_info
+  - system_port_status: sd_status_header
+  - padded_buffer: u8[64]
+
+## Variables (29)
+
+- **__packed** : sd_status_header (line 110)
+- **__packed** : sd_error_header (line 117)
+- **__packed** : sd_interrupt_header (line 123)
+- **__packed** : offload_registers_access (line 128)
+- **__packed** : sd_offloaded_interrupt (line 136)
+- **__packed** : sd_register_header (line 145)
+- **__packed** : sd_offloaded_piggyback (line 151)
+- **__packed** : sd_response (line 161)
+- **__packed** : sd_command (line 166)
+- **__packed** : host_controller_info (line 57)
+- **__packed** : sd_command_header (line 73)
+- **__packed** : sd_irqpoll_header (line 84)
+- **__packed** : sd_common_header (line 90)
+- **__packed** : sd_response_header (line 99)
+- static **cmndworkqueue** : workqueue_struct * (line 273)
+- static **deadworkqueue** : workqueue_struct * (line 275)
+- static **disable_offload_processing** : bool (line 232)
+- static **firmware_irqpoll_timeout** : int (line 245)
+- static **firmware_rom_wait_states** : int (line 254)
+- static **firmware_rom_wait_states** : int (line 256)
+- static **force_1_bit_data_xfers** : bool (line 236)
+- static **force_max_req_size** : int (line 249)
+- static **force_polling_for_irqs** : bool (line 241)
+- static **limit_speed_to_24_MHz** : bool (line 223)
+- static **pad_input_to_usb_pkt** : bool (line 227)
+- static **pollworkqueue** : workqueue_struct * (line 274)
+- static **vub300_driver** : usb_driver (line 2414)
+- static **vub300_mmc_ops** : const struct mmc_host_ops (line 2077)
+- static **vub300_table** : const struct usb_device_id[] (line 266)
+
+## Macros (63)
+
+- **ELAN_VENDOR_ID** (line 263)
+- **ENTER_DFU_MODE** (line 365)
+- **FIRMWARE_BLOCK_BOUNDARY** (line 59)
+- **FUN**(c) (line 220)
+- **GET_HC_INF0** (line 366)
+- **GET_SYSTEM_PORT_STATUS** (line 367)
+- **INTERRUPT_REGISTER_ACCESSES** (line 130)
+- **MAXREGBITS** (line 325)
+- **MAXREGMASK** (line 327)
+- **MAXREGS** (line 326)
+- **PIGGYBACK_REGISTER_ACCESSES** (line 147)
+- **REG**(c) (line 221)
+- **RESPONSE_ERROR** (line 183)
+- **RESPONSE_INTERRUPT** (line 182)
+- **RESPONSE_IRQ_DISABLED** (line 185)
+- **RESPONSE_IRQ_ENABLED** (line 186)
+- **RESPONSE_NO_INTERRUPT** (line 188)
+- **RESPONSE_PIGGYBACKED** (line 187)
+- **RESPONSE_PIG_DISABLED** (line 189)
+- **RESPONSE_PIG_ENABLED** (line 190)
+- **RESPONSE_STATUS** (line 184)
+- **SD_ERROR_1BIT_CRC_ERROR** (line 195)
+- **SD_ERROR_1BIT_CRC_WRONG** (line 193)
+- **SD_ERROR_1BIT_DATA_TIMEOUT** (line 205)
+- **SD_ERROR_1BIT_TIMEOUT** (line 191)
+- **SD_ERROR_1BIT_UNEXPECTED_TIMEOUT** (line 200)
+- **SD_ERROR_4BIT_CRC_ERROR** (line 196)
+- **SD_ERROR_4BIT_CRC_WRONG** (line 194)
+- **SD_ERROR_4BIT_DATA_TIMEOUT** (line 206)
+- **SD_ERROR_4BIT_TIMEOUT** (line 192)
+- **SD_ERROR_4BIT_UNEXPECTED_TIMEOUT** (line 201)
+- **SD_ERROR_ILLEGAL_COMMAND** (line 202)
+- **SD_ERROR_ILLEGAL_STATE** (line 207)
+- **SD_ERROR_INVALID_FUNCTION** (line 210)
+- **SD_ERROR_NO_1BIT_DATEND** (line 198)
+- **SD_ERROR_NO_4BIT_DATEND** (line 199)
+- **SD_ERROR_NO_CMD_ENDBIT** (line 197)
+- **SD_ERROR_NO_DEVICE** (line 203)
+- **SD_ERROR_OUT_OF_RANGE** (line 211)
+- **SD_ERROR_OVERRUN** (line 217)
+- **SD_ERROR_PIO_TIMEOUT** (line 218)
+- **SD_ERROR_RESERVED_ERROR** (line 209)
+- **SD_ERROR_SDCRDY_STUCK** (line 215)
+- **SD_ERROR_STAT_CMD** (line 212)
+- **SD_ERROR_STAT_CMD_TIMEOUT** (line 214)
+- **SD_ERROR_STAT_DATA** (line 213)
+- **SD_ERROR_TRANSFER_LENGTH** (line 204)
+- **SD_ERROR_UNHANDLED** (line 216)
+- **SD_ERROR_UNKNOWN_ERROR** (line 208)
+- **SET_CLOCK_SPEED** (line 361)
+- **SET_FAILURE_MODE** (line 358)
+- **SET_FUNCTION_BLOCK_SIZE** (line 362)
+- **SET_INTERRUPT_PSEUDOCODE** (line 357)
+- **SET_IRQ_ENABLE** (line 360)
+- **SET_ROM_WAIT_STATES** (line 359)
+- **SET_SD_DATA_MODE** (line 363)
+- **SET_SD_POWER** (line 364)
+- **SET_TRANSFER_PSEUDOCODE** (line 356)
+- **VUB300_PRODUCT_ID** (line 265)
+- **VUB300_VENDOR_ID** (line 264)
+- **kref_to_vub300_mmc_host**(d) (line 355)
+- **vub300_resume** (line 2396)
+- **vub300_suspend** (line 2395)
