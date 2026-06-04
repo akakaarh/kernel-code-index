@@ -1,6 +1,21 @@
 # Kernel Code Index
 
-Linux 内核代码符号索引系统，为 AI 提供内核代码结构理解能力。通过 MCP (Model Context Protocol) 与 Claude Code 集成，支持符号查询、调用链分析和语义搜索。
+> Linux 内核几千万行代码，塞不进 LLM 上下文窗口。这个工具做了一个中间层：提取符号、构建调用图、向量化索引，让 AI 能回答"这个函数被谁调用"这类问题。
+
+## 效果
+
+在 Claude Code 中直接问：
+
+```
+> gpio 子系统的 probe 流程是怎样的？
+
+AI 通过 MCP 调用 call_chain / find_symbol，回答：
+gpio_chip_probe() ← gpio_device_probe() ← really_probe()
+  → 调用 gc->request = gpiochip_generic_request
+  → 调用 gpiochip_add_data_with_key 注册到 gpiodev
+```
+
+不用手动翻代码，AI 直接给出调用链和代码位置。
 
 ## 功能
 
@@ -22,7 +37,7 @@ Linux 内核代码符号索引系统，为 AI 提供内核代码结构理解能�
 ### 安装
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/kernel-code-index.git
+git clone https://github.com/akakaarh/kernel-code-index.git
 cd kernel-code-index
 
 # 安装 Python 依赖

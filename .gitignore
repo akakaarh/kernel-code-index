@@ -1,12 +1,18 @@
 # Python
 __pycache__/
 *.pyc
-
-# Claude Code 配置
-.claude/
+*.egg-info/
+.env
+.venv/
 
 # 内核源码（太大，309MB）
 kernel-src/
 
 # 数据库（运行时生成）
 *.db
+sqlite_mcp_server.db
+
+# Claude / Codex 配置
+CLAUDE.md
+.claude/
+.codex/
